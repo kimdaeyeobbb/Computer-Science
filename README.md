@@ -1,2 +1,2 @@
 # Computer-Science
-Computer Science (Date Structure, Algorihtm, Database, Network, Operating System)
+Computer Science (Date Structure, Algorithm, Database, Network, Operating System)
