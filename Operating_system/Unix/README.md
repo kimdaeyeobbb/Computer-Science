@@ -18,4 +18,25 @@ Linux, ubuntu, RedHat, android, iOS, macOS, chrome OS등 수많은 운영체제�
   OS의 핵심부. 리누스 토발즈가 커널 하나를 생성 (리눅스)<BR>
   GNU + Linux Kernel = GNU/Linux <br>
 2) <strong>리눅스 (GNU/Linux)</strong><BR>
-  UNIX를 자유롭게 변형하고 배포할 수 있음. 리눅스 또한 POSIX(UNIX 표준)에 부합 
+  UNIX를 자유롭게 변형하고 배포할 수 있음. 리눅스 또한 POSIX(UNIX 표준)에 부합<BR>
+
+  
+  
+* Command<BR>
+  커멘드와 인자/옵션을 함께 사용함으로서 원하는 결과를 출력해낼 수 있다
+```linux
+ date
+ 현재 날짜 나타냄
+  
+ cal 
+ 현재 날짜를 달력으로나타냄
+  
+ cal 2029
+ cal 뒤에 인자를 주어 나타내고 싶은 년도의 달력을 나타냄
+ 인자는 command가 작동할 대상을 지정한다.
+
+ cal -y
+ 현재 년도에 해당하는 달력 출력
+ -y는 '옵션'으로서 command의 구체적인 동작 방식을 지정한다.
+```
+  
