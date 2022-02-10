@@ -88,4 +88,31 @@ Linux, ubuntu, RedHat, android, iOS, macOS, chrome OS등 수많은 운영체제�
   [3] <strong>직전 경로로 이동</strong><br>
   <strong>cd -</strong> 을 입력하면 직전에 위치했던 경로로 이동한다.<br>
   
+  * ls (list the information about the files)<br>
+  현재 디렉토리 내부의자식 디렉토리 리스트를 보여줌<br>
+  ls -l : 디렉토리, 파일 크기, 최종 수정 날짜 등 상세정보까지 나타냄<br>
+         (-l : long listing format. 세부정보를 긴 리스트로 나타내는 옵션)<br>
+  ls -a : 디렉토리 내 숨겨진 자식 디렉토리 확인 가능 .이 찍혀져 있는 디렉토리 확인 (-a : all의 줄임말)<br>
+  ls -d : 디렉토리 자체 정보를 나타냄<br>
+  <strong>ls command의 인자</strong> : 특정 디렉토리의 정보를 알고 싶을 때 이용<br>
+  <strong>-d 옵션</strong> : 디렉토리 자체의 정보를 알고 싶을 때 이용<br>
+  
+  * mkdir<br>
+  make directory. 디렉토리 생성. mkdir + 만들고 싶은 디렉토리명 꼴로 사용한다.<br>
+  
+  * touch<br>
+  파일 생성. <strong>touch + 만들고 싶은 파일 명</strong> 꼴로 사용<br>
+  
+  * mv<br>
+  move. 디렉토리나 파일을 옮김. 혹은 디렉토리나 파일의 이름을 변경할 수 있다. (mv+바꿀 대상+바뀔이름)<br>
+  
+  * cp<br>
+  copy & paste. 복사 및 붙여넣기. 복사할 파일에 내용이존재시 복사될 파일의 내용으로 덮어쓰는것에 유의<br>
+  ex) cp file1 file2 -> 복사될 파일(file1)을 앞에 써주고 복사할 파일(file2)을 뒤에 써준다<br>
+  
+  * cp -i<br>
+  interactive. 덮어 쓸 것인지 물어보는 i옵션을 사용해서 덮어쓰기에 유의하며 작업을 하도록 하자<br>
+  
+  * cp -r<br>
+  recursive. 디렉토리를 복사&붙여넣기시 자식 디렉토리가 존재한다면 자식 디렉토리 내부의 것도 복사&붙여넣기 함<br>
   
