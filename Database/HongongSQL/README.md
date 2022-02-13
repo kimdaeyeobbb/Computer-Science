@@ -63,15 +63,37 @@ UPDATE 테이블_이름
   SET 열1=값1, 열2=값2 ...
   WHERE 조건;
 ```
-
-  
-  
-  
-  
-  
-DELETE<br>
-ex) 회원탈퇴로 인해 회원을 삭제
-```mysql
-sg
+* 예시1
+```MYSQL
+ USE market_db;
+ UPDATE city_population
+   SET city_name = '서울'
+   WHERE city_name = 'Seoul';
+ SELECT * FROM city_population WHERE city_name = '서울';
 ```
-
+  
+  
+  
+  
+  
+  
+<br>  
+  
+  
+  
+### 데이터 삭제  
+#### DELETE<br>
+테이블의 행 데이터를 삭제할 경우에 사용<br>
+ex) 회원탈퇴로 인해 회원을 삭제<br>
+  
+* 기본 꼴
+```mysql
+DELETE FROM 테이블이름 WHERE 조건;
+```
+  
+* 예시1
+```MYSQL
+DELETE FROM city_population
+  WHERE city_name LIKE 'New%';   -- 도시이름에 New가 들어가는 도시 삭제
+  LIMIT 5;   -- 도시이름에 New가 들어가는 도시 중 상위 5건만 삭제
+```
