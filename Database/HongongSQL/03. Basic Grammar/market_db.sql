@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS market_db; -- 만약 market_db가 존재하면 우선 삭제한다.
 CREATE DATABASE market_db;  -- market_db 데이터베이스 새로 생성
 
-USE market_db;  -- market_db 데이터베이스 선택
+USE market_db;  -- market_db 데이터베이스 선택 (SELECT문을 실행하기 위해 사용할 DB를 먼저 지정해야 함)
 CREATE TABLE member -- 회원 테이블 생성
 ( mem_id  		CHAR(8) NOT NULL PRIMARY KEY, -- 사용자 아이디(PK)
   mem_name    	VARCHAR(10) NOT NULL, -- 이름
@@ -46,6 +46,44 @@ INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 1);
 INSERT INTO buy VALUES(NULL, 'APN', '혼공SQL', '서적', 15, 1);
 INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 4);
 
-SELECT * FROM member;
-SELECT * FROM buy;
+SELECT * FROM member;   -- 입력된 데이터 조회
+SELECT * FROM buy;   -- 입력된 데이터 조회
 
+SELECT mem_name, addr FROM member WHERE addr='경기' OR addr='전남' OR addr='경남';
+SELECT mem_name, addr FROM member WHERE addr IN('경기','전남','경남');
+SELECT * FROM member WHERE mem_name LIKE '우%';
+SELECT * FROM member WHERE mem_name LIKE '__핑크';
+
+-- 서브쿼리 예시
+SELECT height FROM member WHERE mem_name='에이핑크';
+SELECT mem_name, height FROM member WHERE height>164;
+
+-- 위의 두 SQL을 합쳐서 하나로 만든 서브쿼리
+SELECT mem_name, height FROM member WHERE height>(SELECT height FROM member WHERE mem_name='에이핑크');
+
+
+-- ORDER BY 예시
+SELECT mem_id, mem_name, debut_date, height
+	FROM member
+    WHERE height >= 164
+    ORDER BY height DESC;
+    
+SELECT mem_id, mem_name, debut_date, height
+	FROM member
+    WHERE height >= 164
+    ORDER BY height DESC, debut_date ASC;    
+    
+-- LIMIT 예시
+SELECT * FROM member LIMIT 3;   -- 회원 테이블 중 앞에서 3건만 조회
+SELECT mem_name, debut_date
+	FROM member
+    ORDER BY debut_date
+    LIMIT 0,3;   -- LIMIT 시작, 개수
+
+SELECT mem_name, height
+	FROM member
+    ORDER BY height DESC
+    LIMIT 3,2;   -- LIMIT 시작,개수
+    
+-- DISTINCT 예시
+SELECT DISTINCT addr FROM member;   -- DISTINCT를 열 이름 앞에 붙이면 중복된 값은 1개만 출력
