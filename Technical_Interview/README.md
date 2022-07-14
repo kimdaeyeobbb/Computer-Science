@@ -1,3 +1,11 @@
+# 기술면접 참고 자료
+
+1. [기술면접 참고 자료 1](https://github.com/WeareSoft/tech-interview)
+
+
+
+<br><br><br>
+
 # WEB (FE)
 
 1) var, let, const의 차이점?
