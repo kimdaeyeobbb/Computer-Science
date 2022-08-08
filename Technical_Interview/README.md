@@ -1,7 +1,10 @@
 # 기술면접 참고 자료
 
-1. [기술면접 참고 자료 1](https://github.com/WeareSoft/tech-interview)
-
+1. [기술면접 참고 자료 1](https://github.com/WeareSoft/tech-interview)<br><br>
+2. [👶🏻 신입 개발자 전공 지식 & 기술 면접 백과사전 📖](https://github.com/gyoogle/tech-interview-for-developer)<br><br>
+3. [{ 고퀄리티⚡개발 컨텐츠 모음 }](https://github.com/Integerous/goQuality-dev-contents)<br><br>
+4. [주니어 개발자를 위한 취업 정보](https://github.com/jojoldu/junior-recruit-scheduler)<br><br>
+5. [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview_Question_for_Beginner)
 
 
 <br><br><br>
