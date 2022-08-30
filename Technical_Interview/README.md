@@ -5,7 +5,9 @@
 3. [{ 고퀄리티⚡개발 컨텐츠 모음 }](https://github.com/Integerous/goQuality-dev-contents)<br><br>
 4. [주니어 개발자를 위한 취업 정보](https://github.com/jojoldu/junior-recruit-scheduler)<br><br>
 5. [Technical Interview Guidelines for Beginners](https://github.com/JaeYeopHan/Interview_Question_for_Beginner)<br><br>
-6. [Tech Interview- 기술 면접 대비를 위한 기본 개념을 정리하는 Repository](https://github.com/WeareSoft/tech-interview)
+6. [Tech Interview- 기술 면접 대비를 위한 기본 개념을 정리하는 Repository](https://github.com/WeareSoft/tech-interview)<br><br>
+7. [취준생이 반드시 알아야 할 프론트엔드 지식들](https://github.com/baeharam/Must-Know-About-Frontend)<br><br>
+
 
 
 
