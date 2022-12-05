@@ -41,14 +41,37 @@ Like [해당 조건]
 
 - 예시
 
-```
+```sql
 SELECT FACTORY_ID, FACTORY_NAME, ADDRESS
 FROM FOOD_FACTORY
 WHERE ADDRESS Like"%강원도%"   -- ADDRESS 칼럼에서 '강원도'를 포함하는 항목 선별
 ORDER BY FACTORY_ID ASC;
 ```
 
+<br>
 <hr>
 <br>
 
-##
+### :bookmark: [문제 - 인기있는 아이스크림](https://school.programmers.co.kr/learn/courses/30/lessons/133024)
+
+#### 다중정렬
+
+- 기본 꼴
+
+```sql
+SELECT [컬럼명]
+FROM [테이블명]
+ORDER BY [칼럼1] [정렬조건1 (오름차순/내림차순], [칼럼2] [정렬조건2], ... , [칼럼n] [정렬조건n]
+```
+
+- 예시
+
+```sql
+SELECT FLAVOR FROM FIRST_HALF
+ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC   -- TOTAL_ORDER 기준 내림차순 정렬, TOTAL_ORDER가 같다면 SHIPMENT_ID 기준 오름차순 정렬
+```
+
+<br>
+<hr>
+<br>
+
