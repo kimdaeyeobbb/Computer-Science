@@ -11,6 +11,9 @@
 |    09    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |       [조건에 맞는 회원수 구하기](https://school.programmers.co.kr/learn/courses/30/lessons/131535)        |                                                       [O](./conditionSatisfiedMember.sql)                                                       |
 |    10    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |       [인기있는 아이스크림](https://school.programmers.co.kr/learn/courses/30/lessons/133024)        |                                                       [O](./popularIcecream.sql)|
 |    11    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |       [흉부외과 또는 일반외과 의사 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132203)        |                                                       [O](./printoutSpecificDoctorList.sql)|
+|    12    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |       [12세 이하인 여자 환자 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132201)        |                                                       [O](./printWomanPatientListUnder12.sql) / [O](./printWomanPatientListUnder12_2.sql) / [O](./printWomanPatientListUnder12_3.sql)|
+
+
 
 <br><br>
 
@@ -75,4 +78,76 @@ ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC   -- TOTAL_ORDER 기준 내림차순 
 <br>
 <hr>
 <br>
+
+
+### :bookmark: [문제 - 12세 이하인 여자 환자 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132201)
+
+#### MySQL NULL 처리 - IFNULL
+
+- 기본 꼴
+
+```sql
+SELECT IFNULL(칼럼명, "NULL일 경우 대체값") FROM 테이블명;
+```
+
+- 예시
+
+```sql
+SELECT IFNULL(NAME, "NO NAME") AS NAME FROM HUMAN_INFO
+```
+
+<br>
+
+
+#### MySQL NULL 처리 - CASE
+
+- 기본 꼴
+
+```sql
+SELECT 
+  CASE
+    WHEN 조건식1 THEN 식1
+    WHEN 조건식2 THEN 식2
+    ...
+    ELSE 조건에 맞는 것이 없는 경우 실행할 식
+  END AS [별칭]
+FROM [테이블명]
+```
+
+- 예시
+
+```sql
+SELECT PT_NAME, PT_NO, GEND_CD, AGE, 
+    CASE 
+        WHEN TLNO IS NULL THEN "NONE"   -- 전화번호가 없는 경우 'NONE'으로 출력
+        ELSE TLNO
+    END AS TLNO 
+FROM PATIENT
+```
+
+
+<br>
+
+
+#### MySQL NULL 처리 - COALESCE
+
+- 기본 꼴
+
+```sql
+SELECT COALESCE(칼럼1, 칼럼1이 NULL일 경우 대체할 값) FROM [테이블명]
+```
+
+- 예시
+
+```sql
+SELECT PT_NAME, PT_NO, GEND_CD, AGE, COALESCE(TLNO, "NONE") -- NULL 값인 것은 NONE으로 반환
+FROM PATIENT
+```
+
+
+
+<br>
+<hr>
+<br>
+
 
