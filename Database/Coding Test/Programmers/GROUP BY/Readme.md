@@ -15,7 +15,7 @@
 
 ### :bookmark: [문제 - 강원도에 위치한 생산공장 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/131112)
 
-#### MySql 특정 조건에 맞는 값 검색하기
+#### MySql> 특정 조건에 맞는 값 검색하기
 
 - 기본 꼴
 
@@ -75,7 +75,7 @@ ORDER BY TOTAL_ORDER DESC, SHIPMENT_ID ASC   -- TOTAL_ORDER 기준 내림차순 
 
 ### :bookmark: [문제 - 12세 이하인 여자 환자 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132201)
 
-#### MySQL NULL 처리 - IFNULL
+#### MySQL> NULL 처리 - IFNULL
 
 - 기본 꼴
 
@@ -91,7 +91,7 @@ SELECT IFNULL(NAME, "NO NAME") AS NAME FROM HUMAN_INFO
 
 <br>
 
-#### MySQL NULL 처리 - CASE
+#### MySQL> NULL 처리 - CASE
 
 - 기본 꼴
 
@@ -119,7 +119,7 @@ FROM PATIENT
 
 <br>
 
-#### MySQL NULL 처리 - COALESCE
+#### MySQL> NULL 처리 - COALESCE
 
 - 기본 꼴
 
@@ -140,7 +140,7 @@ FROM PATIENT
 
 ### :bookmark: [문제 - 과일로 만든 아이스크림 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/133025)
 
-#### MySQL > 기본키와 외래키
+#### MySQL> 기본키와 외래키
 
 ##### 기본키
 
@@ -161,7 +161,7 @@ FROM PATIENT
 
 <br>
 
-#### MySQL > JOIN
+#### MySQL> JOIN
 
 - 두개의 테이블을 서로 묶어서 하나의 결과를 만들어 내는 것
 
@@ -183,3 +183,82 @@ FROM [첫 번째 테이블]
 <br>
 <hr>
 <br>
+
+
+### :bookmark: [문제 - 진료과별 총 예약 횟수 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132202)
+
+#### MySql> 일자 조건별 검색
+
+##### 날짜 완전 일치
+
+- `=`연산자는 조건과 완전히 일치하는 결과를 추출함
+- 하단의 예시는 `2022-12-11 17:15:00` 데이터와 동일한 데이터를 추출하는 쿼리임
+
+###### 예시
+
+```sql
+SELECT * 
+FROM APPOINT 
+WHERE DATE = '2022-12-11 17:15:00'; 
+```
+
+##### 날짜만 지정해서 검색하기
+
+- 날짜만 지정해서 검색을 하고 싶은 경우에는 `DATE_FORMAT`을 사용해서 데이터 값 형태를 동일하게 변환해서 검색을 할 것
+
+```sql
+SELECT * 
+FROM APPOINT
+WHERE DATE_FORMAT(DATE, '%Y-%m-%d') = DATE_FORMAT('2022-12-11', '%Y-%m-%d')  -- YYYY/mm/dd 포맷
+```
+
+
+##### 과거 일자 검색
+
+- 지정한 일자보다 과거의 날짜 데이터를 검색하고 싶은 경우에는 `<`를 이용한다.
+
+```sql
+SELECT *
+FROM APPOINT
+WHERE DATE < '2022-12-11 17:15:00'
+```
+
+##### 미래 일자 검색
+
+- 지정한 일자보다 미래의 날짜 데이터를 검색하고 싶은 경우 `>`를 이용한다.
+
+```sql
+SELECT * 
+FROM APPOINT
+WHERE DATE > '2022-12-11 17:15:00'
+```
+
+##### 날짜 범위 지정
+
+- `BETWEEN`을 사용해서 날짜 범위를 지정한 다음 검색할 수 있다
+  - 지정한 범위에 포함되는 데이터는 모두 출력된다.
+
+```sql
+SELECT * 
+FROM APPOINT
+WHERE DATE '2022-12-01 00:00:00' AND 2022-12-31 23:59:59'
+```
+
+
+##### 날짜 범위에 해당하지 않는 데이터 검색
+
+- `NOT BETWEEN`을 사용해서 날짜 범위에 해당하지 않는 데이터를 검색할 수 있다
+
+```sql
+SELECT * 
+FROM APPOINT
+WHERE DATE NOT BETWEEN '2022-11-01 00:00:00' AND '2022-12-05 23:59:59'
+```
+
+
+
+<br>
+<hr>
+<br>
+
+
