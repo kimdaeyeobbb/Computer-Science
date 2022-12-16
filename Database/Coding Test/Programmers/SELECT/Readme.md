@@ -13,7 +13,7 @@
 |    11    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) | [흉부외과 또는 일반외과 의사 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132203) |                                                      [O](./printoutSpecificDoctorList.sql)                                                      |
 |    12    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |    [12세 이하인 여자 환자 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132201)    |         [O](./printWomanPatientListUnder12.sql) / [O](./printWomanPatientListUnder12_2.sql) / [O](./printWomanPatientListUnder12_3.sql)         |
 |    13    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |    [과일로 만든 아이스크림 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/133025)    |         [O](./findFruitIcecream.sql)|
-
+|    14    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |    [조건에 맞는 도서 리스트 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/144853)    |         [O](./fitLibraryCatalog.sql)|
 
 <br><br>
 
