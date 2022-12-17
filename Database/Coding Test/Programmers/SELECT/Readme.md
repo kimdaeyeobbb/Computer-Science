@@ -14,7 +14,7 @@
 |    12    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |    [12세 이하인 여자 환자 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/132201)    |         [O](./printWomanPatientListUnder12.sql) / [O](./printWomanPatientListUnder12_2.sql) / [O](./printWomanPatientListUnder12_3.sql)         |
 |    13    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |    [과일로 만든 아이스크림 고르기](https://school.programmers.co.kr/learn/courses/30/lessons/133025)    |         [O](./findFruitIcecream.sql)|
 |    14    | ![image](https://user-images.githubusercontent.com/68424403/176992717-e1a57e02-8e8e-4f82-9ec8-27fff35dc4f7.png) |    [조건에 맞는 도서 리스트 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/144853)    |         [O](./fitLibraryCatalog.sql)|
-|    15    |![image](https://user-images.githubusercontent.com/68424403/188271247-115b904d-2f51-4791-8f3e-af4bfe5a872c.png) |    [3월에 태어난 여성 회원 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/131120)    |         [O](./femaleWhoBornInMarch.sql)|
+|    15    |![image](https://user-images.githubusercontent.com/68424403/188271247-115b904d-2f51-4791-8f3e-af4bfe5a872c.png) |    [3월에 태어난 여성 회원 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/131120)    |         [O](./femaleWhoBornInMarch.sql) / [O](./femaleWhoBornInMarch2.sql)|
 
 <br><br>
 
@@ -283,7 +283,26 @@ SELECT * FROM MEMBER_INFO WHERE YEAR(DATE_OF_BIRTH) = "2022"
 -- MEMBER_INFO 테이블의 DATE_OF_BIRTH의 일이 17인 애들만 추출할 것
 ```
 
+<br>
 
+
+#### MySQL> 비교 연산자
+
+- 비교 연산자는 피연산자 사이의 상대적인 크기를 판단하여 참이면 1을, 거짓이면 0을 반환함
+
+|비교 연산자|설명|
+|:--:|:--|
+|=|왼쪽 피연산자와 오른쪽 피연산자가 같으면 참을 반환함|
+|!=, <>|왼쪽 피연산자와 오른쪽 피연산자가 같지 않으면 참을 반환함|
+|<=>|양쪽의 피연산자가 모두 NULL이면 참을 반환하고, 하나의 피연산자만 NULL이면 거짓을 반환함|
+|IS|왼쪽 피연산자와 오른쪽 피연산자가 같으면 참을 반환함. (오른쪽 피연산자가 불리언 값인 TRUE, FALSE, UNKNOWN 값일 때 사용함|
+|IS NOT|왼쪽 피연산자와 오른쪽 피연산자가 같지 않으면 참을 반환함. (오른쪽 피연산자가 불리언 값인 TRUE, FALSE, UNKNOWN 값일 때 사용함)|
+|IS NULL|피연산자의 값이 NULL이면 참을 반환함|
+|IS NOT NULL|피연산자의 값이 NULL이 아니면 참을 반환함|
+|BETWEEN min AND max|피연산자의 값이 min 값보다 크거나 같고, max 값보다 작거나 같으면 참을 반환함|
+|NOT BETWEEN min AND max|피연산자의 값이 min 값보다 작거나 max보다 크면 참을 반환함|
+|IN()|피연산자의 값이 인수로 전달받은 리스트에 존재하면 참을 반환함|
+|NOT IN()|피연산자의 값이 인수로 전달받은 리스트에 존재하지 않으면 참을 반환함|
 
 
 
