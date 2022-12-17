@@ -190,3 +190,103 @@ FROM [첫 번째 테이블]
 <br>
 <hr>
 <br>
+
+
+### :bookmark: [문제 - 3월에 태어난 여성 회원 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/131120)
+
+#### MySQL> NULL을 제외한 값 얻어내
+
+- 기본 꼴
+
+```sql
+SELECT [칼럼1] FROM [테이블A] WHERE NOT [컬럼1] IS NULL
+```
+
+- 예시
+
+```sql
+SELECT 
+  MEMBER_ID
+FROM 
+  MEMBER_PROFILE
+WHERE 
+  NOT TLNO IS NULL 
+```
+
+<br>
+
+
+#### MySQL> 특정문자 관련 항목 추출
+
+- 기본꼴
+
+```sql
+SELECT
+  [칼럼]
+FROM
+  [테이블]
+WHERE
+  [조건칼럼]
+  LIKE [문자관련 조건]
+```
+
+- 문자관련 조건
+  - `TEXT`: TEXT와 동일한 부분에 대한 선별
+  - `%TEXT`: TEXT로 끝나는 항목 선별
+  - `TEXT%`: TEXT로 시작하는 항목 선별
+  - `%TEXT%`: TEXT를 포함하는 항목 선별
+  - `TEXT__`: TEXT로 시작하고 뒤에 두글자가 더 있는 항목 선별
+  - `TEXT___`: TEXT로 시작하고 뒤에 세글자가 더 있는 항목 선별
+  - `__TEXT`: TEXT로 끝나고 앞에 두글자가 더 있는 항목 선별
+  - `___TEXT`: TEXT로 끝나고 앞에 세글자가 더 있는 항목 선별
+
+<br>
+
+
+#### MySQL> 날짜와 관련된 데이터 추출
+
+##### 1. 연도 추출(YEAR)
+
+```sql
+SELECT * FROM [테이블] WHERE YEAR(컬렴명) = "2022"
+```
+
+- 예시
+```sql
+SELECT * FROM MEMBER_INFO WHERE YEAR(DATE_OF_BIRTH) = "2022"
+-- MEMBER_INFO 테이블의 DATE_OF_BIRTH의 연도가 2022인 애들만 추출할 것
+```
+
+
+##### 2. 월 추출(MONTH)
+
+```sql
+SELECT * FROM [테이블] WHERE MONTH(컬렴명) = "12"
+```
+
+- 예시
+```sql
+SELECT * FROM MEMBER_INFO WHERE YEAR(DATE_OF_BIRTH) = "12"
+-- MEMBER_INFO 테이블의 DATE_OF_BIRTH의 월이 12인 애들만 추출할 것
+```
+
+
+##### 3. 일 추출(DAYOFMONTH)
+
+```sql
+SELECT * FROM [테이블] WHERE DAYOFMONTH(컬렴명) = "17"
+```
+
+- 예시
+```sql
+SELECT * FROM MEMBER_INFO WHERE YEAR(DATE_OF_BIRTH) = "2022"
+-- MEMBER_INFO 테이블의 DATE_OF_BIRTH의 일이 17인 애들만 추출할 것
+```
+
+
+
+
+
+<br>
+<hr>
+<br>
