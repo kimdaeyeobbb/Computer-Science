@@ -191,3 +191,257 @@ FROM [첫 번째 테이블]
 
 - [참고자료](https://www.w3resource.com/sql/aggregate-functions/sum-with-group-by.php)
 - [참고자료2](https://ciksiti.com/ko/chapters/9730-how-to-use-sum-function-with-group-by-in-mysql)
+
+
+
+
+<br>
+<hr>
+<br>
+
+
+### :bookmark: [문제 - 3월에 태어난 여성 회원 목록 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/131120)
+
+#### MySQL> NULL을 제외한 값 얻어내
+
+- 기본 꼴
+
+```sql
+SELECT [칼럼1] FROM [테이블A] WHERE NOT [컬럼1] IS NULL
+```
+
+- 예시
+
+```sql
+SELECT 
+  MEMBER_ID
+FROM 
+  MEMBER_PROFILE
+WHERE 
+  NOT TLNO IS NULL 
+```
+
+<br>
+
+
+#### MySQL> 특정문자 관련 항목 추출
+
+- 기본꼴
+
+```sql
+SELECT
+  [칼럼]
+FROM
+  [테이블]
+WHERE
+  [조건칼럼]
+  LIKE [문자관련 조건]
+```
+
+- 문자관련 조건
+  - `TEXT`: TEXT와 동일한 부분에 대한 선별
+  - `%TEXT`: TEXT로 끝나는 항목 선별
+  - `TEXT%`: TEXT로 시작하는 항목 선별
+  - `%TEXT%`: TEXT를 포함하는 항목 선별
+  - `TEXT__`: TEXT로 시작하고 뒤에 두글자가 더 있는 항목 선별
+  - `TEXT___`: TEXT로 시작하고 뒤에 세글자가 더 있는 항목 선별
+  - `__TEXT`: TEXT로 끝나고 앞에 두글자가 더 있는 항목 선별
+  - `___TEXT`: TEXT로 끝나고 앞에 세글자가 더 있는 항목 선별
+
+<br>
+
+
+#### MySQL> 날짜와 관련된 데이터 추출
+
+##### 1. 연도 추출(YEAR)
+
+```sql
+SELECT * FROM [테이블] WHERE YEAR(컬렴명) = "2022"
+```
+
+- 예시
+```sql
+SELECT * FROM MEMBER_INFO WHERE YEAR(DATE_OF_BIRTH) = "2022"
+-- MEMBER_INFO 테이블의 DATE_OF_BIRTH의 연도가 2022인 애들만 추출할 것
+```
+
+
+##### 2. 월 추출(MONTH)
+
+```sql
+SELECT * FROM [테이블] WHERE MONTH(컬렴명) = "12"
+```
+
+- 예시
+```sql
+SELECT * FROM MEMBER_INFO WHERE YEAR(DATE_OF_BIRTH) = "12"
+-- MEMBER_INFO 테이블의 DATE_OF_BIRTH의 월이 12인 애들만 추출할 것
+```
+
+
+##### 3. 일 추출(DAYOFMONTH)
+
+```sql
+SELECT * FROM [테이블] WHERE DAYOFMONTH(컬렴명) = "17"
+```
+
+- 예시
+```sql
+SELECT * FROM MEMBER_INFO WHERE YEAR(DATE_OF_BIRTH) = "2022"
+-- MEMBER_INFO 테이블의 DATE_OF_BIRTH의 일이 17인 애들만 추출할 것
+```
+
+<br>
+
+
+#### MySQL> 비교 연산자
+
+- 비교 연산자는 피연산자 사이의 상대적인 크기를 판단하여 참이면 1을, 거짓이면 0을 반환함
+
+|비교 연산자|설명|
+|:--:|:--|
+|=|왼쪽 피연산자와 오른쪽 피연산자가 같으면 참을 반환함|
+|!=, <>|왼쪽 피연산자와 오른쪽 피연산자가 같지 않으면 참을 반환함|
+|<=>|양쪽의 피연산자가 모두 NULL이면 참을 반환하고, 하나의 피연산자만 NULL이면 거짓을 반환함|
+|IS|왼쪽 피연산자와 오른쪽 피연산자가 같으면 참을 반환함. (오른쪽 피연산자가 불리언 값인 TRUE, FALSE, UNKNOWN 값일 때 사용함|
+|IS NOT|왼쪽 피연산자와 오른쪽 피연산자가 같지 않으면 참을 반환함. (오른쪽 피연산자가 불리언 값인 TRUE, FALSE, UNKNOWN 값일 때 사용함)|
+|IS NULL|피연산자의 값이 NULL이면 참을 반환함|
+|IS NOT NULL|피연산자의 값이 NULL이 아니면 참을 반환함|
+|BETWEEN min AND max|피연산자의 값이 min 값보다 크거나 같고, max 값보다 작거나 같으면 참을 반환함|
+|NOT BETWEEN min AND max|피연산자의 값이 min 값보다 작거나 max보다 크면 참을 반환함|
+|IN()|피연산자의 값이 인수로 전달받은 리스트에 존재하면 참을 반환함|
+|NOT IN()|피연산자의 값이 인수로 전달받은 리스트에 존재하지 않으면 참을 반환함|
+
+
+
+<br>
+<hr>
+<br>
+
+
+
+
+
+### :bookmark: [문제 - 조건에 맞는 도서와 저자 리스트 출력하기](https://school.programmers.co.kr/learn/courses/30/lessons/144854)
+
+#### MySQL> JOIN
+
+- JOIN을 이용하면 DB내 여러 테이블에서 가져온 레코드를 조합하여 하나의 테이블이나 결과 집합으로 표현할 수 있다.
+
+- JOIN은 보통 SELECT문과 사용되며, 레코드를 조합하는 방식에 따라 구분할 수 있다.
+
+<br>
+
+##### :one: INNER JOIN
+
+![image](https://user-images.githubusercontent.com/68424403/208283876-a949ce9d-3416-446e-a698-fa8ed329ae04.png)
+
+
+
+- 기본꼴 (INNER JOIN 대신 JOIN이라고 써도 동일함)
+  - INNER JOIN은 ON절의 조건을 만족하는 데이터만 가져옴
+  - ON절에서는 WHERE 절에서 사용할 수 있는 모든 조건을 사용할 수 있음
+  - MySQL에서는 JOIN, INNER JOIN, CROSS JOIN 모두가 같은 의미로 사용된다
+  
+```sql
+SELECT * 
+FROM [첫번째 테이블]
+  INNER JOIN [두번째 테이블]
+  ON [조건]
+```
+
+
+- 예시
+  - 다음예제는 BOOK 테이블의 AUTHOR_ID 필드와 AUTHOR 테이블의 AUTHOR_ID 필드가 서로 일치하는 레코드만을 INNER JOIN으로 가져오는 예시임
+  
+```sql
+SELECT 
+  BOOK_ID,
+  AUTHOR_NAME,
+  DATE_FORMAT(PUBLISHED_DATE, '%Y-%m-%d') AS PUBLISHED_DATE
+FROM BOOK
+  JOIN AUTHOR
+  ON BOOK.AUTHOR_ID = AUTHOR.AUTHOR_ID
+WHERE CATEGORY = '경제'
+```
+
+<br>
+
+
+
+##### :two: LEFT JOIN
+
+![image](https://user-images.githubusercontent.com/68424403/208283871-0d8385e1-9d3a-4e44-86e6-2e3c67da113b.png)
+
+
+
+
+- 기본꼴
+  - LEFT JOIN은 첫 번째 테이블을 기준으로, 두 번째 테이블을 조합하는 JOIN임
+  - ON 절의 조건을 만족하지 않는 경우에는 첫 번째 테이블의 필드값은 그대로 가져옴
+  - 하지만 해당 레코드의 두 번째 테이블의 필드 값은 모두 NULL로됨표시됨
+  
+```sql
+SELECT * 
+FROM [첫번째 테이블]
+  LEFT JOIN [두번째 테이블]
+  ON [조건]
+```
+
+
+- 예시
+  - 다음예제는 RESERVATION 테이블의 NAME 필드를 기준으로 CUSTOMER 테이블의 NAME 필드와 일치하는 레코드만을 LEFT JOIN으로 가져온 후, 그 중에서 RESERVEDATE 필드의 값이 2022년 05월 04일 이후인 레코드만을 선택하는 예시임
+  - 두 개의 NAME값이 일치한다면 INNER JOIN과 같이 두 테이블의 모든 필드를 가져오지만, 일치하지 않는 경우에는 CUSTOMER 테이블의 모든 필드를 NULL로 표시함
+  
+```sql
+SELECT *
+FROM RESERVATION
+  LEFT JOIN CUSTOMER
+  ON RESERVATION.NAME = CUSTOMER.NAME
+WHERE RESERVEDATE > '2022-05-04';
+```
+
+<br>
+
+
+
+
+##### :three: RIGHT JOIN
+
+![image](https://user-images.githubusercontent.com/68424403/208283864-9bbac954-b95a-474d-8df4-074c5bf66212.png)
+
+
+
+
+- 기본꼴
+  - 두 번째 테이블을 기준으로, 첫 번째 테이블을 조합하는 JOIN임
+  - ON 절의 조건을 만족하지 않는 경우에는 두 번째 테이블의 필드 값은 그대로 가져옴
+  - 하지만 해당 레코드의 첫 번째 테이블의 필드 값은 모두 NULL로 표시됨
+  
+```sql
+SELECT * 
+FROM [첫번째 테이블]
+  RIGHT JOIN [두번째 테이블]
+  ON [조건]
+```
+
+
+- 예시
+  - 다음예제는 CUSTOMER 테이블의 NAME 필드를 기준으로 RESERVATION 테이블의 NAME 필드와 일치하는 레코드만을 RIGHT JOIN으로 가져오는 예시임
+  - 두 개의 NAME 값이 일치한다면, INNER JOIN과 같이 두 테이블의 모든 필드를 그대로 가져온다.
+  - 하지만 두 개의 NAME 값이 일치하지 않는 경우에는 RESERVATION 테이블의 모든 필드를 NULL로 표시함
+  
+  
+```sql
+SELECT *
+FROM RESERVATION
+  RIGHT JOIN CUSTOMER
+  ON RESERVATION.NAME = CUSTOMER.NAME
+```
+
+<br>
+
+
+
+
+
