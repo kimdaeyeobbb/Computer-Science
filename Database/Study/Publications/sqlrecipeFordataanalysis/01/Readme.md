@@ -127,3 +127,85 @@
 - [참고자료 2](http://www.tcpschool.com/mysql/mysql_intro_relationalDB)
 
 <br>
+
+## DBMS 종류
+
+### 1. 계층형 (Hierarchical DataBase)
+
+- 데이터 간의 관계가 트리 형태의 구조
+- 데이터를 세그먼트(레코드) 단위로 관리하며 세그먼트 간 계층을 트리구조로 관리
+- 구조가 간단하고 구현, 수정, 검색이 쉽지만 부모 자식 간에 N:N(다대다) 관계 처리가 불가능하고, 구조 변경이 어려움
+
+### 2. 네트워크형 (Network DataBase)
+
+- 계층형 데이터베이스의 단점을 보완하여 데이터 간 N:N(다대다) 구성이 가능한 망형 모델
+- 계층 구조에 링크를 추가하여 유연성과 접근성을 높임
+- 구조가 복잡해 유지보수가 어려움
+
+### 3. 관계형 (Relational DataBase)
+
+- 키(key)와 값(value)으로 이루어진 데이터들을 행(row)과 열(Column)로 구성된 테이블 구조로 단순화시킨 모델
+- SQL(Structured Query Language)를 사용하여 데이터를 처리
+
+### 4. 객체 지향형 (Object-Oriented DataBase)
+
+- 객체지향 프로그래밍 개념에 기반하여 만든 데이터베이스 모델
+- 정보를 객체의 형태로 표현
+- 객체지향 프로그래밍 개념 (클래스, 상속 등)을 사용할 수 있다.
+- 비정형 데이터들을 데이터베이스화 할 수 있도록 하기 위해 만들어진 모델
+
+### 5. 객체 관계형 (Object-Oriented DataBase)
+
+- 관계형 데이터베이스에 객체 지향 개념을 도입하여 만든 데이터베이스 모델
+- 객체지향 개념을 지원하는 표준 SQL을 사용할 수 있고, 데이터 타입도 관계형 데이터베이스보다 더 다양하게 추가
+
+### 6. NoSQL
+
+- Not Only SQL의 줄임말로 SQL뿐만아니라 다양한 특성을 지원한다는 의미
+- 데이터 간에 관계를 정의하지 않는 데이터베이스 모델로 기존의 RDBMS의 복잡도와 용량의 한계를 극복하기 위한 목적으로 만들어짐
+- 비정형 데이터 처리에 유리하지만 스키마 변경이 불가능해 데이터값에 문제가 발생하면 감지가 어렵다
+
+### 7. NewSQL
+
+- RDBMS의 SQL과 NoSQL의 장점을 결합하여 만든 관계형 모델
+- 트랜잭션 지원 및 확장성과 고가용성을 만족시키려는 목적에서 만들어진 데이터베이스 모델
+
+<br>
+<hr>
+<br>
+
+## 실습
+
+- 예제
+
+```sql
+DROP TABLE IF EXISTS access_log ;
+CREATE TABLE access_log (
+stamp varchar(255)
+, referrer text
+, url text
+);
+INSERT INTO access_log
+VALUES
+('2016-08-26 12:02:00', 'http://www.other.com/path1/index.php?k1=v1&k2=v2#Ref1', 'http://www.example.com/video/detail?id=001')
+, ('2016-08-26 12:02:01', 'http://www.other.net/path1/index.php?k1=v1&k2=v2#Ref1', 'http://www.example.com/video#ref' )
+, ('2016-08-26 12:02:01', 'https://www.other.com/' , 'http://www.example.com/book/detail?id=002' )
+```
+
+- 예제
+
+  - timestamp: 현재시간을 가져와주는 함수
+  - cast: 타입변환시 사용
+  - extract: 타임스탬프에서
+
+<br>
+<hr>
+<br>
+
+# 06
+
+## 1. 문자열 연결하기
+
+- SELECT: 쿼리를 취할 컬럼 지정
+- CONCAT: 문자열을 결합하는 함수
+- SIGN: 기호를 숫자로 치환해줌 (-은 음수, 없는것들은 0, +인 것들은 양수)
