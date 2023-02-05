@@ -1,3 +1,9 @@
+# 참고할만한 사이트
+
+- [참고 사이트 1](https://www.dpsolutions.com/success-center/it-terminology-glossary)
+- [참고 사이트 2](https://www.koscom.co.kr/portal/bbs/B0000034/list.do?menuNo=200327)
+
+
 # IT 용어
 
 ## 쿠키(cookie)
