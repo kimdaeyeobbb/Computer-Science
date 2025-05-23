@@ -102,3 +102,18 @@ API 게이트웨이는 똑똑한 문지이의 역할을 한다
       - AWS 클라우드는 Loose Coupling의 원리로 설계되어있음
       - AWS 클라우드는 하나의 큰 서비스이지만 세부적으로 200개가 넘는 서비스가 존재함
       - 예를들어, S3,EC2, Lambda, RDS 등의 서븨스는 각각 독립적으로 운영되며 서로에게 직접적인 의존성을 갖지 않는다. (연관성은 있으나, 기본적으로 독립적으로 작동함)
+
+## 키워드
+
+- API Gateway
+- Service Mesh
+- PoC (Proof of Concept)
+- emissary ingress
+- Linkerd
+- 미들웨어 (api 게이트웨이는 미들웨어의 역할)
+
+## 참고자료
+
+- [오늘의집](https://www.bucketplace.com/post/2021-11-19-%EC%98%A4%EB%8A%98%EC%9D%98%EC%A7%91-msa-%EC%97%AC%EC%A0%95-part-1-%EC%8B%9C%EC%9E%91/)
+
+- [Web applicartion architecture](https://dev.to/techelopment/web-application-architecture-front-end-middleware-and-back-end-2ld7)
